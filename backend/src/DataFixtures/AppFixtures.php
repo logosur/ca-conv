@@ -13,17 +13,18 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\PasswordHasher\PasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
-    private User $user;
+    private UserPasswordHasherInterface $passwordHasher;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
-        $usuarios = $em->getRepository(User::class)->findAll();
-        $this->user = $usuarios[0];
+       $this->passwordHasher = $passwordHasher; 
     }
-    public function load(ObjectManager $manager): void
+    public function load(ObjectManager $manager)
     {
         $ciudad = new Ciudad();
         $ciudad->setCiudad('Sevilla');
@@ -32,6 +33,21 @@ class AppFixtures extends Fixture
         $ciudad = new Ciudad();
         $ciudad->setCiudad('Madrid');
         $manager->persist($ciudad);
+
+        $user = new User();
+        $user->setUsername('admin');
+        $user->setEmail('admin@adminmail435.org');
+        $hashedPassword = $this->passwordHasher->hashPassword(
+            $user,
+            '12345678'
+        );
+        $user->setPassword($hashedPassword);
+        $user->setNombre('Admin user');
+        $user->setApellido('apeadmin');
+        $user->setEdad(30);
+        $user->setCiudad($ciudad);
+        $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
+        $manager->persist($user);
 
         $pregunta = new Pregunta();
         $pregunta->setTitulo('Título pregunta 1');
@@ -56,14 +72,14 @@ class AppFixtures extends Fixture
 
         $usuariosRespuesta = new UsuariosRespuesta();
         $usuariosRespuesta->setPregunta($pregunta);
-        $usuariosRespuesta->setUsuario($this->user);
+        $usuariosRespuesta->setUsuario($user);
         $usuariosRespuesta->setPregunta($pregunta);
         $usuariosRespuesta->setRespuesta("Respuesta 1");
         $usuariosRespuesta->setFecha(new DateTime());
         $manager->persist($usuariosRespuesta);
 
         $recomendacion = new Recomendacion();
-        $recomendacion->setUsuario($this->user);
+        $recomendacion->setUsuario($user);
         $recomendacion->setProducto($productoFinanciero);
         $recomendacion->setFecha(new DateTime());
         $manager->persist($recomendacion);
