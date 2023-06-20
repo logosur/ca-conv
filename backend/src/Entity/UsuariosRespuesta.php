@@ -18,17 +18,17 @@ class UsuariosRespuesta
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $Usuario = null;
+    private ?User $usuario = null;
 
     #[ORM\Column(length: 512)]
-    private ?string $Respuesta = null;
+    private ?string $respuesta = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $fecha = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Pregunta $Pregunta = null;
+    private ?Pregunta $pregunta = null;
 
     public function getId(): ?int
     {
@@ -37,24 +37,24 @@ class UsuariosRespuesta
 
     public function getUsuario(): ?User
     {
-        return $this->Usuario;
+        return $this->usuario;
     }
 
-    public function setUsuario(User $Usuario): static
+    public function setUsuario(User $usuario): static
     {
-        $this->Usuario = $Usuario;
+        $this->usuario = $usuario;
 
         return $this;
     }
 
     public function getRespuesta(): ?string
     {
-        return $this->Respuesta;
+        return $this->respuesta;
     }
 
-    public function setRespuesta(string $Respuesta): static
+    public function setRespuesta(string $respuesta): static
     {
-        $this->Respuesta = $Respuesta;
+        $this->respuesta = $respuesta;
 
         return $this;
     }
@@ -73,12 +73,12 @@ class UsuariosRespuesta
 
     public function getPregunta(): ?Pregunta
     {
-        return $this->Pregunta;
+        return $this->pregunta;
     }
 
-    public function setPregunta(Pregunta $Pregunta): static
+    public function setPregunta(Pregunta $pregunta): static
     {
-        $this->Pregunta = $Pregunta;
+        $this->pregunta = $pregunta;
 
         return $this;
     }

@@ -32,19 +32,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Ciudad $Ciudad = null;
+    private ?Ciudad $ciudad = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Email = null;
+    private ?string $email = null;
 
     #[ORM\Column]
     private ?int $edad = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Nombre = null;
+    private ?string $nombre = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Apellido = null;
+    private ?string $apellido = null;
 
     public function getId(): ?int
     {
@@ -118,24 +118,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getCiudad(): ?Ciudad
     {
-        return $this->Ciudad;
+        return $this->ciudad;
     }
 
-    public function setCiudad(?Ciudad $Ciudad): static
+    public function setCiudad(?Ciudad $ciudad): static
     {
-        $this->Ciudad = $Ciudad;
+        $this->ciudad = $ciudad;
 
         return $this;
     }
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    public function setEmail(string $Email): static
+    public function setEmail(string $email): static
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
@@ -154,24 +154,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getNombre(): ?string
     {
-        return $this->Nombre;
+        return $this->nombre;
     }
 
-    public function setNombre(string $Nombre): static
+    public function setNombre(string $nombre): static
     {
-        $this->Nombre = $Nombre;
+        $this->nombre = $nombre;
 
         return $this;
     }
 
     public function getApellido(): ?string
     {
-        return $this->Apellido;
+        return $this->apellido;
     }
 
-    public function setApellido(string $Apellido): static
+    public function setApellido(string $apellido): static
     {
-        $this->Apellido = $Apellido;
+        $this->apellido = $apellido;
 
         return $this;
     }

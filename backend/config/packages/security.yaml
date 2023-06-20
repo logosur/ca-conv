@@ -33,7 +33,13 @@ security:
             json_login:
                 # api_login is a route we will create below
                 check_path: api_login
-                
+            
+            custom_authenticators:
+                - App\Security\ApiKeyAuthenticator
+
+            logout:
+                path: app_logout
+                    
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:

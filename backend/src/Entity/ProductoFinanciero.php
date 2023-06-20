@@ -18,28 +18,28 @@ class ProductoFinanciero
     private ?string $nombre = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $TasaInteres = null;
+    private ?string $tasaInteres = null;
 
     #[ORM\Column]
-    private ?int $Plazo = null;
+    private ?int $plazo = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $MontoMaxInversion = null;
+    private ?string $montoMaxInversion = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $RequisitosIngresosMinimos = null;
+    private ?string $requisitosIngresosMinimos = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $Garantias = null;
+    private ?string $garantias = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $CostosAdicionales = null;
+    private ?string $costosAdicionales = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $BeneficiosAdicionales = null;
+    private ?string $beneficiosAdicionales = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?TiposProducto $TipoProducto = null;
+    private ?TiposProducto $tipoProducto = null;
 
     public function getId(): ?int
     {
@@ -60,96 +60,96 @@ class ProductoFinanciero
 
     public function getTasaInteres(): ?string
     {
-        return $this->TasaInteres;
+        return $this->tasaInteres;
     }
 
-    public function setTasaInteres(string $TasaInteres): static
+    public function setTasaInteres(string $tasaInteres): static
     {
-        $this->TasaInteres = $TasaInteres;
+        $this->tasaInteres = $tasaInteres;
 
         return $this;
     }
 
     public function getPlazo(): ?int
     {
-        return $this->Plazo;
+        return $this->plazo;
     }
 
-    public function setPlazo(int $Plazo): static
+    public function setPlazo(int $plazo): static
     {
-        $this->Plazo = $Plazo;
+        $this->plazo = $plazo;
 
         return $this;
     }
 
     public function getMontoMaxInversion(): ?string
     {
-        return $this->MontoMaxInversion;
+        return $this->montoMaxInversion;
     }
 
-    public function setMontoMaxInversion(string $MontoMaxInversion): static
+    public function setMontoMaxInversion(string $montoMaxInversion): static
     {
-        $this->MontoMaxInversion = $MontoMaxInversion;
+        $this->montoMaxInversion = $montoMaxInversion;
 
         return $this;
     }
 
     public function getRequisitosIngresosMinimos(): ?string
     {
-        return $this->RequisitosIngresosMinimos;
+        return $this->requisitosIngresosMinimos;
     }
 
-    public function setRequisitosIngresosMinimos(string $RequisitosIngresosMinimos): static
+    public function setRequisitosIngresosMinimos(string $requisitosIngresosMinimos): static
     {
-        $this->RequisitosIngresosMinimos = $RequisitosIngresosMinimos;
+        $this->requisitosIngresosMinimos = $requisitosIngresosMinimos;
 
         return $this;
     }
 
     public function getGarantias(): ?string
     {
-        return $this->Garantias;
+        return $this->garantias;
     }
 
-    public function setGarantias(string $Garantias): static
+    public function setGarantias(string $garantias): static
     {
-        $this->Garantias = $Garantias;
+        $this->garantias = $garantias;
 
         return $this;
     }
 
     public function getCostosAdicionales(): ?string
     {
-        return $this->CostosAdicionales;
+        return $this->costosAdicionales;
     }
 
-    public function setCostosAdicionales(string $CostosAdicionales): static
+    public function setCostosAdicionales(string $costosAdicionales): static
     {
-        $this->CostosAdicionales = $CostosAdicionales;
+        $this->costosAdicionales = $costosAdicionales;
 
         return $this;
     }
 
     public function getBeneficiosAdicionales(): ?string
     {
-        return $this->BeneficiosAdicionales;
+        return $this->beneficiosAdicionales;
     }
 
-    public function setBeneficiosAdicionales(string $BeneficiosAdicionales): static
+    public function setBeneficiosAdicionales(string $beneficiosAdicionales): static
     {
-        $this->BeneficiosAdicionales = $BeneficiosAdicionales;
+        $this->beneficiosAdicionales = $beneficiosAdicionales;
 
         return $this;
     }
 
     public function getTipoProducto(): ?TiposProducto
     {
-        return $this->TipoProducto;
+        return $this->tipoProducto;
     }
 
-    public function setTipoProducto(?TiposProducto $TipoProducto): static
+    public function setTipoProducto(?TiposProducto $tipoProducto): static
     {
-        $this->TipoProducto = $TipoProducto;
+        $this->tipoProducto = $tipoProducto;
 
         return $this;
     }

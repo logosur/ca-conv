@@ -18,14 +18,14 @@ class Recomendacion
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $Usuario = null;
+    private ?User $usuario = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?ProductoFinanciero $Producto = null;
+    private ?ProductoFinanciero $producto = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $Fecha = null;
+    private ?\DateTimeInterface $fecha = null;
 
     public function getId(): ?int
     {
@@ -34,36 +34,36 @@ class Recomendacion
 
     public function getUsuario(): ?User
     {
-        return $this->Usuario;
+        return $this->usuario;
     }
 
-    public function setUsuario(User $Usuario): static
+    public function setUsuario(User $usuario): static
     {
-        $this->Usuario = $Usuario;
+        $this->usuario = $usuario;
 
         return $this;
     }
 
     public function getProducto(): ?ProductoFinanciero
     {
-        return $this->Producto;
+        return $this->producto;
     }
 
-    public function setProducto(ProductoFinanciero $Producto): static
+    public function setProducto(ProductoFinanciero $producto): static
     {
-        $this->Producto = $Producto;
+        $this->producto = $producto;
 
         return $this;
     }
 
     public function getFecha(): ?\DateTimeInterface
     {
-        return $this->Fecha;
+        return $this->fecha;
     }
 
-    public function setFecha(\DateTimeInterface $Fecha): static
+    public function setFecha(\DateTimeInterface $fecha): static
     {
-        $this->Fecha = $Fecha;
+        $this->fecha = $fecha;
 
         return $this;
     }

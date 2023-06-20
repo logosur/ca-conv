@@ -12,6 +12,21 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+        {{ form_row(registrationForm.email, {
+            label: 'Email'
+        }) }}
+        {{ form_row(registrationForm.nombre, {
+            label: 'Nombre'
+        }) }}
+        {{ form_row(registrationForm.apellido, {
+            label: 'Apellido'
+        }) }}
+        {{ form_row(registrationForm.edad, {
+            label: 'Edad'
+        }) }}
+        {{ form_row(registrationForm.ciudad, {
+            label: 'Ciudad'
+        }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn">Register</button>
