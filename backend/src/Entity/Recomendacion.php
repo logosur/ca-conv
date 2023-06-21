@@ -24,8 +24,14 @@ class Recomendacion
     #[ORM\JoinColumn(nullable: false)]
     private ?ProductoFinanciero $producto = null;
 
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $fecha = null;
+
+    #[ORM\OneToOne(inversedBy: 'recomendacion', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ChatSession $chat = null;
+
 
     public function getId(): ?int
     {
@@ -67,4 +73,17 @@ class Recomendacion
 
         return $this;
     }
+
+    public function getChat(): ?ChatSession
+    {
+        return $this->chat;
+    }
+
+    public function setChat(ChatSession $chat): static
+    {
+        $this->chat = $chat;
+
+        return $this;
+    }
+
 }

@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\ChatPreguntas;
+use App\Entity\ChatSession;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -47,6 +49,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Recomendacion', 'fas fa-list', Recomendacion::class);
         yield MenuItem::linkToCrud('TiposProducto', 'fas fa-list', TiposProducto::class);
         yield MenuItem::linkToCrud('UsuariosRespuesta', 'fas fa-list', UsuariosRespuesta::class);
+        yield MenuItem::linkToCrud('ChatSession', 'fas fa-list', ChatSession::class);
+        yield MenuItem::linkToCrud('ChatPreguntas', 'fas fa-list', ChatPreguntas::class);
 
     }
 }

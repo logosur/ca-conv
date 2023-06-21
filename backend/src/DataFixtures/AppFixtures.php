@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ChatPreguntas;
+use App\Entity\ChatSession;
 use App\Entity\User;
 use App\Entity\Ciudad;
 use App\Entity\TiposProducto;
@@ -15,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\PasswordHasher\PasswordHasherInterface;
+use Symfony\Component\Uid\Uuid;
 
 class AppFixtures extends Fixture
 {
@@ -78,12 +81,30 @@ class AppFixtures extends Fixture
         $usuariosRespuesta->setFecha(new DateTime());
         $manager->persist($usuariosRespuesta);
 
+        $chatSesion = new ChatSession();
+        $chatSesion->setCompletado(1);
+        $chatSesion->setUsuario($user);
+        $chatSesion->setFechaInicio(new DateTime());
+        $chatSesion->setFechaModificacion(new DateTime());
+        $manager->persist($chatSesion);
+
+        $chatPregunta = new ChatPreguntas();
+        $chatPregunta->setChat($chatSesion);
+        $chatPregunta->setPregunta($pregunta);
+        $chatPregunta->setRespuesta($usuariosRespuesta);
+        $chatPregunta->setFecha(new DateTime());
+        $manager->persist($chatPregunta);
+
         $recomendacion = new Recomendacion();
         $recomendacion->setUsuario($user);
         $recomendacion->setProducto($productoFinanciero);
+        $recomendacion->setChat($chatSesion);
         $recomendacion->setFecha(new DateTime());
         $manager->persist($recomendacion);
 
+        $chatSesion->setRecomendacion($recomendacion);
+        $manager->persist($chatSesion);
+        
         $manager->flush();
     }
 }

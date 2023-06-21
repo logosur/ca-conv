@@ -23,8 +23,7 @@ class UserEditController extends AbstractController
     ): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        dump($user);
-        //$user = new User();
+        
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
