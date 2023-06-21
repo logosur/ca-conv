@@ -18,11 +18,11 @@ class ChatPreguntas
     #[ORM\JoinColumn(nullable: false)]
     private ?ChatSession $chat = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'], fetch:"EAGER")]
     #[ORM\JoinColumn(nullable: false)]
     private ?Pregunta $pregunta = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'], fetch:"EAGER")]
     private ?UsuariosRespuesta $respuesta = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

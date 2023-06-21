@@ -20,7 +20,7 @@ class Recomendacion
     #[ORM\JoinColumn(nullable: false)]
     private ?User $usuario = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'], fetch:"EAGER")]
     #[ORM\JoinColumn(nullable: false)]
     private ?ProductoFinanciero $producto = null;
 

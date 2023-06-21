@@ -13,12 +13,16 @@
 
     <div class="data">
     {% for item in chats %}
-        <p>Chat Id: {{item.id}}</p>
+        <p>Chat Id: {{item.id}} - Estado {% if item.completado %}Completado{% else %}Pendiente{%endif%}</p>
         {% for pregunta in item.chatPreguntas %}
             <div clas="pregunas">
-                <p>Pregunta: {{pregunta.titulo}} - {{pregunta.descripcion}}
+                <p>Pregunta: {{pregunta.pregunta.titulo}} | {{pregunta.pregunta.descripcion}}
             </div>
             {% endfor %}    
+        {% if item.completado %}
+            Producto financiero recomendado:<br/>
+            {{dump(item.recomendacion.producto)}}
+        {%endif%}</p>
     {% endfor %}
     </div>
 </div>

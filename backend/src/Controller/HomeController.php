@@ -15,7 +15,7 @@ class HomeController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $data = $userData->get();
-        dump($data[0]->getRecomendacion()->getProducto()); exit();
+        //dump($data); exit();
         return $this->render('home/index.html.twig', [
             'chats' => $data
         ]);

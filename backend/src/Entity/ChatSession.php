@@ -22,7 +22,7 @@ class ChatSession
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
     private ?int $completado = null;
 
-    #[ORM\OneToMany(mappedBy: 'chat', targetEntity: ChatPreguntas::class)]
+    #[ORM\OneToMany(mappedBy: 'chat', targetEntity: ChatPreguntas::class, fetch:"EAGER")]
     private Collection $chatPreguntas;
     
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -31,7 +31,7 @@ class ChatSession
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $fechaModificacion = null;
 
-    #[ORM\OneToOne(mappedBy: 'chat', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'chat', cascade: ['persist', 'remove'], fetch:"EAGER")]
     private ?Recomendacion $recomendacion = null;
 
 
