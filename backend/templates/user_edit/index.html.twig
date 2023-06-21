@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Editar usuario</h1>
+
+    {{ form_errors(editForm) }}
+
+    {{ form_start(editForm) }}
+        {{ form_row(editForm.username) }}
+        {{ form_row(editForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(editForm.email, {
+            label: 'Email'
+        }) }}
+        {{ form_row(editForm.nombre, {
+            label: 'Nombre'
+        }) }}
+        {{ form_row(editForm.apellido, {
+            label: 'Apellido'
+        }) }}
+        {{ form_row(editForm.edad, {
+            label: 'Edad'
+        }) }}
+        {{ form_row(editForm.ciudad, {
+            label: 'Ciudad'
+        }) }}
+        {{ form_row(editForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Guardar</button>
+    {{ form_end(editForm) }}
+{% endblock %}
