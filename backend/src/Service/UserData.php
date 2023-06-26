@@ -9,6 +9,9 @@ use App\Entity\User;
 use App\Entity\Recomendacion;
 use Symfony\Component\Security\Core\Security;
 
+/*
+ * Obtiene los datos necesarios para los controladores que muestran los datos de financiación del usuario.
+ */
 class UserData
 {
     private ?User $user;
