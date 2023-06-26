@@ -111,7 +111,7 @@ function buildUserDataItem(v) {
     }
 
     if (v.completado) {
-        html_response += '<p class="producto">Producto financiero \'' + v.producto.nombre + '\': tasaInteres: ' + v.producto.tasaInteres + ', plazo: ' + v.producto.plazo + ', montoMaxInversion: ' + v.producto.montoMaxInversion + ', requisitosIngresosMinimos: ' + v.producto.requisitosIngresosMinimos + ', garantias: ' + v.producto.garantias + ', costosAdicionales: ' + v.producto.costosAdicionales + ', beneficiosAdicionales: ' + v.producto.beneficiosAdicionales + ', tipoProducto: ' + v.producto.tipoProducto.tipo + '<label></label></p>';
+        html_response += '<p class="producto">Producto financiero recomendado \'' + v.producto.nombre + '\': tasaInteres: ' + v.producto.tasaInteres + ', plazo: ' + v.producto.plazo + ', montoMaxInversion: ' + v.producto.montoMaxInversion + ', requisitosIngresosMinimos: ' + v.producto.requisitosIngresosMinimos + ', garantias: ' + v.producto.garantias + ', costosAdicionales: ' + v.producto.costosAdicionales + ', beneficiosAdicionales: ' + v.producto.beneficiosAdicionales + ', tipoProducto: ' + v.producto.tipoProducto.tipo + '<label></label></p>';
     }
     html_response += '---------------';
 
