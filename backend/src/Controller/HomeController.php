@@ -9,13 +9,16 @@ use App\Service\UserData;
 
 class HomeController extends AbstractController
 {
+    /*
+     * Carga la view de la homepage para la versión frontend de Symfony/Twig.
+     */
     #[Route('/', name: 'home')]
     public function index(UserData $userData): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $data = $userData->get();
-        //dump($data); exit();
+
         return $this->render('home/index.html.twig', [
             'chats' => $data
         ]);

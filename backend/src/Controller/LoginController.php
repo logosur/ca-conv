@@ -9,6 +9,9 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
+    /*
+     * View y controlador para realizar login en la versión frontend de Symfony+Twig
+     */
     #[Route('/login', name: 'app_login')]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {

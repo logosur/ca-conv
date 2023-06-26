@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\UserRepository;
 
+/*
+ * Realiza tests de aplicación para las API/backend.
+ */
 class UserDataTest extends WebTestCase          
 {
     private string $usuario = 'admin';

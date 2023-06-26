@@ -14,6 +14,9 @@ use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 class UserEditController extends AbstractController
 {
+    /*
+     * Api para edición de datos de profile de usario para la versión frontend de Symfony/Twig.
+     */
     #[Route('/user/edit', name: 'app_user_edit')]
     public function index(
         Request $request,
@@ -38,7 +41,6 @@ class UserEditController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             return $this->redirectToRoute('home');
         }

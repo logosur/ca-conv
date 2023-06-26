@@ -17,6 +17,9 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class UserApiController extends AbstractController
 {
+    /*
+     * Api para edición de datos de profile de usario en la versión frontend SPA.
+     */
     #[Route('/api/user', name: 'app_api_user_edit', methods: ['PUT'])]
     public function edit(
         Request $request,

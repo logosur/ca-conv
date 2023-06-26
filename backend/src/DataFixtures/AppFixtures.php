@@ -19,6 +19,11 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\PasswordHasher\PasswordHasherInterface;
 use Symfony\Component\Uid\Uuid;
 
+/*
+ * Crea fixtures para usar la App, evitando tener que meterlos manualmente.
+ * Se requieren estas fixtures especialmente para el entorno test, de lo contrario
+ * los tests no funcionarían correctamente.
+ */
 class AppFixtures extends Fixture
 {
     private UserPasswordHasherInterface $passwordHasher;

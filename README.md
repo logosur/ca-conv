@@ -49,6 +49,7 @@ Al instalar la App, siguiendo los pasos mencionados anteriormente, se ha creado 
 `http://127.0.0.1:8082/admin/`
 
 Sobre los principios SOLID y testings, en los requisitos de esta App no se encuentra mucha lógica de negocio para el dominio de la aplicación, como podría haber sido el algoritmo que determina el producto a recomendar al cliente. Por ello, no se ha podido demostrar mucho en este aspecto, tanto en el código como en los tests.
+En lo referente a los tests, por el mismo motivo, solo ha lugar tests de aplicación al no haber lógica de negocio que testear en servicios.
 
 No se ha requerido, pero sería importante también el uso de Swagger para documentar las APIs.
 Igualmente sería importante usar phpstan y cs-fixed

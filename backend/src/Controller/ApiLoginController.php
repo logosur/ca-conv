@@ -28,6 +28,9 @@ class ApiLoginController extends AbstractController
         ]);
     }
 
+    /*
+     * Api de control de sesión de authentificación por token para frontend.
+     */
     #[Route('/api/me', name: 'api_me')]
     public function me(#[CurrentUser] ?User $user, UserTransformer $userTransformer): Response
     {
