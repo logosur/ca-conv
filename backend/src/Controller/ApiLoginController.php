@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
+use App\Transformer\UserTransformer;
 
 class ApiLoginController extends AbstractController
 {
@@ -19,11 +20,28 @@ class ApiLoginController extends AbstractController
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        $token = 'xxx'; // somehow create an API token for $user
+        $token = 'xxx';
 
         return $this->json([
             'user'  => $user->getUserIdentifier(),
             'token' => $token,
+        ]);
+    }
+
+    #[Route('/api/me', name: 'api_me')]
+    public function me(#[CurrentUser] ?User $user, UserTransformer $userTransformer): Response
+    {
+        if (null === $user) {
+            return $this->json([
+                'message' => 'Not logged in.',
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $userDTO = $userTransformer->toDTO($user);
+
+        return $this->json([
+            'result'  => 'ok',
+            'user' => $userDTO
         ]);
     }
 }

@@ -1,0 +1,23 @@
+a {color: #0000ff !important }
+a:hover {text-decoration: dashed !important;}
+
+button, .button {
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+    margin-bottom: 10px !important;
+    border-radius: 8px;
+    width: 200px;
+    cursor:pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+input, textarea, select {
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+    margin-bottom: 10px !important;
+}
+
+form label {
+    padding: 8px !important;
+}
