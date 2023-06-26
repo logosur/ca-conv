@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Perfil - CC Dineo</title>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="assets/js/tailwindcss.config.js"></script>
+        <link href="assets/css/default.css" type="text/css" rel="stylesheet">
+    </head>
+<body>
+    <div id="app">
+        <div class="top mb-4"><p><a href="/">Inicio</a></p></div>
+        <h1>Modificar usuario</h1>
+        <form method="POST" id="profileForm">
+            <p>Email: <input type="text" name="email" value=""/></p>
+            <p>Nombre: <input type="text" name="nombre" value=""/></p>
+            <p>Apellido: <input type="text" name="apellido" value=""/></p>
+            <p>Edad: <input type="text" name="edad" value=""/></p>
+            <p>Ciudad: <select name="ciudad" id="ciudad_frm"/></select></p>
+            <input type="submit" value="Guardar"/>
+        </form>
+    </div>
+</body>
+</html>

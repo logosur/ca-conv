@@ -5,10 +5,18 @@ use App\DTO\PreguntaDTO;
 use App\DTO\UserDataDTO;
 use App\Entity\Pregunta;
 use App\Entity\UsuariosRespuesta;
+use App\Transformer\PreguntaTransformer;
 
 class UserDataTransformer
 {
-    public function transform(Array $data): array
+    private PreguntaTransformer $preguntaTransformer;
+
+    public function __construct(PreguntaTransformer $preguntaTransformer)
+    {
+        $this->preguntaTransformer = $preguntaTransformer;
+    }
+    
+    public function toDTO(Array $data): array
     {
         $result = [];
 
@@ -17,7 +25,7 @@ class UserDataTransformer
             $dto = new UserDataDTO();
             $dto->setCompletado($item->getCompletado());
             foreach ($item->getChatPreguntas() as $i => $pregunta) {
-                $preguntas[] = $this->transformPregunta($pregunta->getPregunta(),  $pregunta->getRespuesta());
+                $preguntas[] = $this->preguntaTransformer->toDTO($pregunta->getPregunta(),  $pregunta->getRespuesta());
             }
             $dto->setPreguntas($preguntas);
             $dto->setProducto($item->getRecomendacion()->getProducto());
@@ -26,15 +34,5 @@ class UserDataTransformer
         }
 
         return $result;
-    }
-
-    public function transformPregunta(Pregunta $pregunta, UsuariosRespuesta $respuesta): PreguntaDTO
-    {
-        $preguntaDTO = new PreguntaDTO();
-        $preguntaDTO->setTitulo($pregunta->getTitulo());
-        $preguntaDTO->setDescripcion($pregunta->getDescripcion());
-        $preguntaDTO->setRespuesta($respuesta->getRespuesta());
-
-        return $preguntaDTO;
     }
 }

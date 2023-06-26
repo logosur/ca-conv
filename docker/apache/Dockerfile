@@ -9,10 +9,6 @@ COPY ./httpd.conf /usr/local/apache2/conf
 COPY ./httpd-vhosts.conf /usr/local/apache2/conf/extra
 COPY ./proxy-html.conf /usr/local/apache2/conf/extra
 
-#COPY ./entrypoint.sh /
-#ENTRYPOINT ["/entrypoint.sh"]
-#CMD ["echo \"`dig apache +short`    experiences.local.com\" >> /etc/hosts"]
-
 EXPOSE 80
 
 

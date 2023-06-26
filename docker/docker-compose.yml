@@ -6,7 +6,7 @@ services:
               context: ./apache
               dockerfile: Dockerfile
         volumes:
-              - ./../htdocs:/usr/local/apache2/htdocs
+              - ./../frontend:/usr/local/apache2/htdocs
         ports:
               - 80:80
         networks:
